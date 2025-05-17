@@ -219,14 +219,6 @@
 .continue_shopping_btn{
   margin-top: -50px;
 }
-
-.IconChangeColor{
-    color: white;
-}
-
-.IconChangeColor:hover{
-    color: brown;
-}
    @media (max-width: 768px) {
     .cart-container {
       padding: 10px; /* Reduce padding */
