@@ -1,19 +1,19 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { removeItem, updateQuantity } from './CartSlice';
+import './ProductList.css';
 import './CartItem.css';
 
 const CartItem = ({ onContinueShopping }) => {
-  const cart = useSelector(state => state.cart.items);
   const dispatch = useDispatch();
-
-  // Calculate total amount for all products in the cart
-  const calculateTotalAmount = () => {
- 
-  };
+  console.log("before");
+  const cartItems = useSelector((state) => state.cart.items);
+  console.log(cartItems);
+  console.log("after");
+  const totalAmount = cartItems.reduce((total, item) => total + parseFloat(item.cost.substring(1)) * item.quantity, 0);
 
   const handleContinueShopping = (e) => {
-   
+    onContinueShopping(e);
   };
 
 
@@ -30,13 +30,15 @@ const CartItem = ({ onContinueShopping }) => {
 
   // Calculate total cost based on quantity for an item
   const calculateTotalCost = (item) => {
+    
+    return (parseFloat(item.cost.substring(1)) * item.quantity);
   };
 
   return (
     <div className="cart-container">
-      <h2 style={{ color: 'black' }}>Total Cart Amount: ${calculateTotalAmount()}</h2>
+      <h2 style={{ color: 'black' }}>Total Cart Amount: ${totalAmount}</h2>
       <div>
-        {cart.map(item => (
+        {cartItems.map(item => (
           <div className="cart-item" key={item.name}>
             <img className="cart-item-image" src={item.image} alt={item.name} />
             <div className="cart-item-details">
@@ -53,7 +55,7 @@ const CartItem = ({ onContinueShopping }) => {
           </div>
         ))}
       </div>
-      <div style={{ marginTop: '20px', color: 'black' }} className='total_cart_amount'></div>
+      
       <div className="continue_shopping_btn">
         <button className="get-started-button" onClick={(e) => handleContinueShopping(e)}>Continue Shopping</button>
         <br />

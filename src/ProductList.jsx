@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import './ProductList.css'
+import './ProductList.css';
+import './CartItem.css';
 import CartItem from './CartItem';
 import { useSelector, useDispatch } from 'react-redux';
 import { addItem } from './CartSlice';
 
 function ProductList({ onHomeClick }) {
     const dispatch = useDispatch();
-    const cartItems = useSelector(state => state.cart.items);
+    const cartItems = useSelector((state) => state.cart.items);
+    console.log(cartItems);
+    console.log("outside");
     const [showCart, setShowCart] = useState(false);
     const [showPlants, setShowPlants] = useState(false); // State to control the visibility of the About Us page
     
@@ -57,13 +60,13 @@ function ProductList({ onHomeClick }) {
             plants: [
                 {
                     name: "Lavender",
-                    image: "https://images.unsplash.com/photo-1611909023032-2d6b3134ecba?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                    image: "https://dictionary.cambridge.org/uk/images/thumb/lavend_noun_002_20774.jpg?version=6.0.50",
                     description: "Calming scent, used in aromatherapy.",
                     cost: "$20"
                 },
                 {
                     name: "Jasmine",
-                    image: "https://images.unsplash.com/photo-1592729645009-b96d1e63d14b?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                    image: "https://www.santhionlineplants.com/wp-content/uploads/2021/11/Stare-Jasmine-Color-Kagattan-1.jpg",
                     description: "Sweet fragrance, promotes relaxation.",
                     cost: "$18"
                 },
@@ -122,7 +125,7 @@ function ProductList({ onHomeClick }) {
                 },
                 {
                     name: "Lavender",
-                    image: "https://images.unsplash.com/photo-1611909023032-2d6b3134ecba?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                    image: "https://dictionary.cambridge.org/uk/images/thumb/lavend_noun_002_20774.jpg?version=6.0.50",
                     description: "Calming scent, used in aromatherapy.",
                     cost: "$20"
                 },
@@ -180,7 +183,7 @@ function ProductList({ onHomeClick }) {
             plants: [
                 {
                     name: "ZZ Plant",
-                    image: "https://images.unsplash.com/photo-1632207691143-643e2a9a9361?q=80&w=464&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                    image: "https://www.gardendesign.com/pictures/images/300x300Exact_46x0/site_3/zz-plant-in-clay-pot-zamioculcas-zamiifolia-shutterstock-com_16268.jpg",
                     description: "Thrives in low light and requires minimal watering.",
                     cost: "$25"
                 },
@@ -278,7 +281,7 @@ function ProductList({ onHomeClick }) {
                 </div>
                 <div style={styleObjUl}>
                     <div> <a href="#" onClick={(e) => handlePlantsClick(e)} style={styleA}>Plants</a></div>
-                    <div> <a href="#" onClick={(e) => handleCartClick(e)} style={styleA}><h1 className='cart'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" id="IconChangeColor" height="68" width="68"><rect width="156" height="156" fill="none"></rect><circle cx="80" cy="216" r="12"></circle><circle cx="184" cy="216" r="12"></circle><path d="M42.3,72H221.7l-26.4,92.4A15.9,15.9,0,0,1,179.9,176H84.1a15.9,15.9,0,0,1-15.4-11.6L32.5,37.8A8,8,0,0,0,24.8,32H8" fill="none" stroke="#faf9f9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" id="mainIconPathAttribute"></path></svg></h1></a></div>
+                    <div> <a href="#" onClick={(e) => handleCartClick(e)} style={styleA}><h1 className='cart'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" id="IconChangeColor" height="68" width="68"><text x="75" y="145" font-size="60" fill="white">1</text><circle cx="80" cy="216" r="12"></circle><circle cx="184" cy="216" r="12"></circle><path d="M42.3,72H221.7l-26.4,92.4A15.9,15.9,0,0,1,179.9,176H84.1a15.9,15.9,0,0,1-15.4-11.6L32.5,37.8A8,8,0,0,0,24.8,32H8" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" id="mainIconPathAttribute" fill="none"></path></svg></h1></a></div>
                 </div>
             </div>
             {!showCart ? (

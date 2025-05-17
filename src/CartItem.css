@@ -219,13 +219,21 @@
 .continue_shopping_btn{
   margin-top: -50px;
 }
+
+.IconChangeColor{
+    color: white;
+}
+
+.IconChangeColor:hover{
+    color: brown;
+}
    @media (max-width: 768px) {
     .cart-container {
       padding: 10px; /* Reduce padding */
     }
   
     .total_cart_amount {
-      font-size: 18px; /* Reduce font size */
+      font-size: 10px; /* Reduce font size */
     }
   }
 

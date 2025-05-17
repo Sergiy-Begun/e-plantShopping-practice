@@ -162,8 +162,9 @@ body {
 }
 .cart{
     color: white;
-    display: flex;
+    font-size: 10px;
 }
+
 .cart_quantity_count{
     margin-top: 16px;
     /* background-color: red; */
@@ -239,6 +240,14 @@ body {
     }
   }
   
+svg {
+    stroke: #faf9f9;
+}
+
+svg:hover {
+    stroke: #c0392b;
+}
+
   @media (max-width: 768px) {
     .product-card {
       flex: 1 1 calc(50% - 20px); /* Adjust width for 2 cards per row with 20px gap on small screens */
